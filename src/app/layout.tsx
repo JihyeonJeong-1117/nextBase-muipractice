@@ -13,6 +13,8 @@ import SessionProvider from '@/components/providers/SessionProvider';
 import { DialogProvider } from '@/components/providers/DialogProvider';
 import { ApiProvider } from '@/components/providers/ApiProvider';
 import { ToastContainer } from 'react-toastify';
+import { Button, Container, Typography } from '@mui/material';
+import Link from 'next/link';
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
@@ -54,6 +56,13 @@ export default function RootLayout({
                 <DialogProvider>
                   <ApiProvider>
                     {children}
+                    <Container maxWidth="xs" sx={{ mt: 8 }}>
+                      <Button>
+                        <Link href="/test">
+                          <Typography>Go check Cards</Typography>
+                        </Link>
+                      </Button>
+                    </Container>
                     <ReactQueryDevtools initialIsOpen={false} />
                   </ApiProvider>
                 </DialogProvider>

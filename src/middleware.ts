@@ -18,6 +18,11 @@ export default async function middleware(
     return globalResponse;
   }
 
+  if (req.nextUrl.pathname === '/test') {
+    // ui 쇼케이스
+    return;
+  }
+
   // 로그인 페이지에 대한 특별 처리
   if (req.nextUrl.pathname === '/login') {
     const token = await getToken({ req });
