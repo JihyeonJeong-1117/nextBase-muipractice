@@ -342,3 +342,7 @@
   background-image: --value(--overlay-*);
   box-shadow: --value(--shadow-*);
 }
+
+.swiper-slide {
+  width: fit-content;
+}

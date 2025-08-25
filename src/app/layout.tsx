@@ -48,27 +48,17 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider>
-          <AppRouterCacheProvider
-            options={{ key: 'css', enableCssLayer: true }}
-          >
+
             <ThemeProvider theme={theme}>
               <QueryProvider>
                 <DialogProvider>
                   <ApiProvider>
                     {children}
-                    <Container maxWidth="xs" sx={{ mt: 8 }}>
-                      <Button>
-                        <Link href="/test">
-                          <Typography>Go check Cards</Typography>
-                        </Link>
-                      </Button>
-                    </Container>
                     <ReactQueryDevtools initialIsOpen={false} />
                   </ApiProvider>
                 </DialogProvider>
               </QueryProvider>
             </ThemeProvider>
-          </AppRouterCacheProvider>
         </SessionProvider>
         <ToastContainer
           position="bottom-left" // 토스트 알림이 나타날 화면 위치 (예: 'bottom-left', 'top-right')

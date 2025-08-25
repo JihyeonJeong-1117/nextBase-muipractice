@@ -18,9 +18,10 @@ export default async function middleware(
     return globalResponse;
   }
 
-  if (req.nextUrl.pathname === '/test') {
+  // 임시: test 페이지로 이동하게
+  if (req.nextUrl.pathname === '/') {
     // ui 쇼케이스
-    return;
+    return NextResponse.redirect(new URL('/test', req.url));
   }
 
   // 로그인 페이지에 대한 특별 처리
@@ -35,7 +36,7 @@ export default async function middleware(
   }
 
   // 일반적인 인증 미들웨어 실행
-  return authMiddleware(req as NextRequestWithAuth, event);
+ // return authMiddleware(req as NextRequestWithAuth, event);
 }
 
 // 제외할 경로 목록
