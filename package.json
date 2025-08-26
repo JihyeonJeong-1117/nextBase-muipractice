@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-react": "^11.0.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
@@ -22,6 +23,7 @@
     "ag-grid-community": "^34.1.2",
     "ag-grid-react": "^34.1.2",
     "axios": "^1.10.0",
+    "ckeditor5": "^46.0.2",
     "dayjs": "^1.11.13",
     "jwt-decode": "^4.0.0",
     "next": "15.3.3",

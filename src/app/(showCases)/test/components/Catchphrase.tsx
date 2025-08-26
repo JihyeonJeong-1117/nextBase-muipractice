@@ -27,7 +27,7 @@ const Catchphrase = () => {
       >
         하이펀딩 서비스
       </Typography>
-      <Button type="submit" variant="contained" sx={{ px: 8, maxWidth: 300 }}>
+      <Button type="button" variant="contained" sx={{ px: 8, maxWidth: 300 }}>
         투자 신청하기
       </Button>
     </Box>

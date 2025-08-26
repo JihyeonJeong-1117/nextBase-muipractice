@@ -26,6 +26,8 @@ import Carousel from './components/Carousel';
 import Image from 'next/image';
 import TitleWithIcon from './components/TitleWidthIcon';
 import SimulationForm from './components/SimulationForm';
+import CustomEditor from './components/CustomEditor';
+import ClientSideCustomEditor from './components/ClientSideCustomEditor';
 
 function TestPage() {
   return (
@@ -197,6 +199,13 @@ function TestPage() {
               <Box display="flex" flexDirection={'column'} gap={4}>
                 <TitleWithIcon>투자 시뮬레이션</TitleWithIcon>
                 <SimulationForm />
+              </Box>
+              <Box>
+                <FlexibleCard>
+                  <ClientSideCustomEditor
+                    onSubmit={() => console.log('submit')}
+                  />
+                </FlexibleCard>
               </Box>
             </Container>
           </div>

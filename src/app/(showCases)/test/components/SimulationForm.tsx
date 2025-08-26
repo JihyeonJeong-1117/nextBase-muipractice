@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   FormControl,
   Input,
   InputLabel,
@@ -12,6 +13,7 @@ import {
 import { ChangeEvent, useState } from 'react';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -26,9 +28,11 @@ const SimulationForm = () => {
       지급일: '2025.09.08',
       '지급 금액(세전)': '788,448원',
       원금: '100,000원',
+      이자: '5000원',
+      세금: '5000원',
+      수수료: '5000원',
+      지급금액: '5000원',
     },
-    { make: 'Ford', model: 'F-Series', price: 33850, electric: false },
-    { make: 'Toyota', model: 'Corolla', price: 29600, electric: false },
   ]);
 
   // Column Definitions: Defines the columns to be displayed.
@@ -51,11 +55,18 @@ const SimulationForm = () => {
   };
 
   return (
-    <>
+    <Box
+      display={'flex'}
+      flexDirection={'column'}
+      alignItems={'center'}
+      gap={2}
+      position={'relative'}
+    >
       <Box
         display="flex"
         justifyContent={'space-between'}
-        sx={{ background: 'white', borderRadius: 3 }}
+        sx={{ background: 'white', borderRadius: 3, width: 1 }}
+        flexGrow={1}
       >
         <Box display="flex" flexGrow={1} sx={{ p: 1 }} alignItems={'center'}>
           <FormControl sx={{ width: 60 }}>
@@ -87,12 +98,62 @@ const SimulationForm = () => {
         </Box>
       </Box>
 
-      <Box>
-        <div style={{ height: 500 }}>
+      <Box
+        sx={{
+          display: {
+            xs: 'none',
+            md: 'flex',
+          },
+          width: '100%',
+        }}
+      >
+        <div className="h-[200px] w-[inherit]">
           <AgGridReact rowData={rowData} columnDefs={colDefs} />
         </div>
       </Box>
-    </>
+      <Box
+        sx={{
+          display: {
+            xs: 'flex',
+            md: 'none',
+          },
+          width: '100%',
+        }}
+      >
+        <Box
+          display="flex"
+          sx={{ background: 'white', borderRadius: 3, width: '100%' }}
+        >
+          {rowData.map((item, index) => (
+            <Box key={index} sx={{ width: '100%' }}>
+              {Object.entries(item).map(([k, v]) => (
+                <Box display={'flex'} justifyContent={'space-between'} key={k}>
+                  <div>{k}</div>
+                  <div>{v}</div>
+                </Box>
+              ))}
+            </Box>
+          ))}
+        </Box>
+      </Box>
+      <Button type="button" variant="contained" sx={{ px: 8, maxWidth: 300 }}>
+        투자 신청하기
+      </Button>
+      <Box
+        position="absolute"
+        top={64}
+        sx={{
+          borderRadius: 30,
+          background: 'black',
+          width: 30,
+          height: 30,
+          color: 'white',
+          textAlign: 'center',
+        }}
+      >
+        <KeyboardArrowDownIcon />
+      </Box>
+    </Box>
   );
 };
 
