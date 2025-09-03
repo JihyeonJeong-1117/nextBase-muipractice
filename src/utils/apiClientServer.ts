@@ -45,6 +45,7 @@ apiClientServer.interceptors.request.use(
     };
 
     const session = (await getServerSession(authOptions)) as AuthSession | null;
+    console.log('session', session);
     if (session && session.accessToken) {
       config.headers.Authorization = `Bearer ${session.accessToken}`;
     }

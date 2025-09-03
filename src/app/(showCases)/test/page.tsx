@@ -28,6 +28,7 @@ import TitleWithIcon from './components/TitleWidthIcon';
 import SimulationForm from './components/SimulationForm';
 import CustomEditor from './components/CustomEditor';
 import ClientSideCustomEditor from './components/ClientSideCustomEditor';
+import Footer from '@/components/footer';
 
 function TestPage() {
   return (
@@ -208,6 +209,7 @@ function TestPage() {
                 </FlexibleCard>
               </Box>
             </Container>
+            <Footer />
           </div>
         </div>
       </div>
